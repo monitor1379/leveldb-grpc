@@ -31,7 +31,7 @@ var (
 )
 
 func main() {
-    // open local leveldb
+	// open local leveldb
 	db, err := leveldb.OpenFile(path, nil)
 	if err != nil {
 		log.Fatal(err)
@@ -39,7 +39,7 @@ func main() {
 	}
 	defer db.Close()
 
-    // net.Listen
+	// net.Listen
 	address := fmt.Sprintf("%s:%d", host, port)
 	listener, err := net.Listen("tcp", address)
 	if err != nil {
@@ -47,7 +47,7 @@ func main() {
 		return
 	}
 
-    // listen and serve
+	// listen and serve
 	fmt.Printf("Listening: %s\n", address)
 	server := leveldbgrpc.NewServer(db)
 	err = server.Serve(listener)
