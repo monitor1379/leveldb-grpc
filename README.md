@@ -112,6 +112,12 @@ func main() {
 
 ## Benchmark
 
+Platform:
+- CPU: 8vCPU, Intel(R) Core(TM) i7-7700HQ CPU @ 2.80GHz
+- Mem: 8G RAM
+- Disk: HDD, ST1000LM035-1RK172
+
+
 
 ```bash
 go test -bench=. -run=none client_test.go
