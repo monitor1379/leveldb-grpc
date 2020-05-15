@@ -2,7 +2,6 @@
 
 LevelDB gRPC Server
 
-
 ## Installation
 
 ```
@@ -132,5 +131,5 @@ BenchmarkServerSetParallel-8       50000             78767 ns/op
 BenchmarkServerGetParallel-8       50000             31610 ns/op
 ```
 
-Set QPS: about 12000
-Get QPS: about 31645
+- Set QPS: about 12000+
+- Get QPS: about 30000+
