@@ -1,0 +1,32 @@
+syntax = "proto3";
+
+
+option go_package = ".;proto";
+
+service Database {
+    rpc Set(OperationSetRequest) returns (OperationSetResponse);
+    rpc Get(OperationGetRequest) returns (OperationGetResponse);
+}
+
+
+message OperationSetRequest {
+    bytes key = 1;
+    bytes value = 2;
+}
+
+
+message OperationSetResponse {
+    bool ok = 1;
+    string errorMessage = 2;
+}
+
+message OperationGetRequest {
+    bytes key = 1;
+}
+
+
+message OperationGetResponse {
+    bool ok = 1;
+    string errorMessage = 2;
+    bytes value = 3;
+}
