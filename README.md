@@ -10,7 +10,8 @@ Platform:
 - Disk: HDD, ST1000LM035-1RK172
 
 
-gRPC Versions:
+Versions:
+- golang: go1.14.3 linux/amd64
 - protoc-gen-go: v1.22.0-devel
 - protoc: v3.7.1
 - google.golang.org/grpc: 1.30.0-dev
@@ -23,10 +24,10 @@ go test -bench=. -run=none client_test.go
 ```
 goos: linux
 goarch: amd64
-BenchmarkServerSet-8               10000            173876 ns/op
-BenchmarkServerGet-8               20000             92282 ns/op
-BenchmarkServerSetParallel-8       50000             78767 ns/op
-BenchmarkServerGetParallel-8       50000             31610 ns/op
+BenchmarkServerSet-8               13704            106428 ns/op
+BenchmarkServerGet-8               15654             84919 ns/op
+BenchmarkServerSetParallel-8       32892             67833 ns/op
+BenchmarkServerGetParallel-8       51129             29454 ns/op
 ```
 
 - Set QPS: about 12000+
