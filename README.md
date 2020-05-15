@@ -2,6 +2,36 @@
 
 LevelDB gRPC Server
 
+## Benchmark
+
+Platform:
+- CPU: 8vCPU, Intel(R) Core(TM) i7-7700HQ CPU @ 2.80GHz
+- Mem: 8G RAM
+- Disk: HDD, ST1000LM035-1RK172
+
+
+gRPC Versions:
+- protoc-gen-go: v1.22.0-devel
+- protoc: v3.7.1
+- google.golang.org/grpc: 1.30.0-dev
+
+
+```bash
+go test -bench=. -run=none client_test.go
+```
+
+```
+goos: linux
+goarch: amd64
+BenchmarkServerSet-8               10000            173876 ns/op
+BenchmarkServerGet-8               20000             92282 ns/op
+BenchmarkServerSetParallel-8       50000             78767 ns/op
+BenchmarkServerGetParallel-8       50000             31610 ns/op
+```
+
+- Set QPS: about 12000+
+- Get QPS: about 30000+
+
 ## Installation
 
 ```
@@ -108,28 +138,3 @@ func main() {
 
 ```
 
-
-## Benchmark
-
-Platform:
-- CPU: 8vCPU, Intel(R) Core(TM) i7-7700HQ CPU @ 2.80GHz
-- Mem: 8G RAM
-- Disk: HDD, ST1000LM035-1RK172
-
-
-
-```bash
-go test -bench=. -run=none client_test.go
-```
-
-```
-goos: linux
-goarch: amd64
-BenchmarkServerSet-8               10000            173876 ns/op
-BenchmarkServerGet-8               20000             92282 ns/op
-BenchmarkServerSetParallel-8       50000             78767 ns/op
-BenchmarkServerGetParallel-8       50000             31610 ns/op
-```
-
-- Set QPS: about 12000+
-- Get QPS: about 30000+
